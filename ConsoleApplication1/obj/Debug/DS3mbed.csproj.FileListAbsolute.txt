@@ -1,0 +1,10 @@
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\SharpDX.DirectInput.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\SharpDX.dll
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\SharpDX.xml
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\bin\Debug\SharpDX.DirectInput.xml
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\DS3mbed.csprojResolveAssemblyReference.cache
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\Users\Alex\documents\visual studio 2013\Projects\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
