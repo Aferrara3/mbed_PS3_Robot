@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace ConsoleApplication1
+namespace DS3mbed
 {
     class Program
     {
@@ -38,7 +38,7 @@ namespace ConsoleApplication1
 
             _serialPort.Open();
             _continue = true;
-            readThread.Start();
+            readThread.Start();s
             
             /*Console.Write("Name: ");
             name = Console.ReadLine();
@@ -89,26 +89,32 @@ namespace ConsoleApplication1
             // Poll events from joystick
             while (_continue)
             {
-                /*message = Console.ReadLine();
-                if (stringComparer.Equals("quit", message))
-                {
-                    _continue = false;
-                }
-                else
-                {
-                    _serialPort.WriteLine(
-                        String.Format("<{0}>: {1}", name, message));
-                }*/
-
                 joystick.Poll();
                 var datas = joystick.GetBufferedData();
                 foreach (var state in datas)
                 {
-                    if (state.Offset.ToString() == "Y") _serialPort.WriteLine("[L" + state.Value.ToString()+"]\r\n");
-                    else if (state.Offset.ToString() == "RotationY") _serialPort.WriteLine("[R" + state.Value.ToString() + "]\r\n");
-                    //else
-                    //_serialPort.WriteLine(state.Offset.ToString() + ": " + state.Value.ToString()+"\r\n");
-                    //Console.WriteLine(state);
+                    String temp = "";
+                    String offset = state.Offset.ToString();
+                    int value = state.Value;
+
+                         if (offset == "Y")            temp = "[L" + value + "]\r\n";
+                    else if (offset == "RotationY")    temp = "[R" + value + "]\r\n";
+
+                    else if (offset == "Buttons0" && value == 128) temp = "X\r\n";
+                    else if (offset == "Buttons0" && value == 0) temp = "x\r\n";
+                    
+                    else if (offset == "Buttons1" && value == 128) temp = "C\r\n";
+                    else if (offset == "Buttons1" && value == 0) temp = "c\r\n";
+
+                    else if (offset == "Buttons2" && value == 128) temp = "S\r\n";
+                    else if (offset == "Buttons2" && value == 0) temp = "s\r\n";
+
+                    else if (offset == "Buttons3" && value == 128) temp = "T\r\n";
+                    else if (offset == "Buttons3" && value == 0) temp = "t\r\n";
+
+                    Console.Write(temp);
+                    _serialPort.WriteLine(temp);
+
                 }
                 
             }
@@ -167,22 +173,7 @@ namespace ConsoleApplication1
         // Display PortParity values and prompt user to enter a value.
         public static Parity SetPortParity(Parity defaultPortParity)
         {
-            string parity="";
-            /*
-            Console.WriteLine("Available Parity options:");
-            foreach (string s in Enum.GetNames(typeof(Parity)))
-            {
-                Console.WriteLine("   {0}", s);
-            }
-
-            Console.Write("Enter Parity value (Default: {0}):", defaultPortParity.ToString(), true);
-            parity = Console.ReadLine();
-            */
-            if (parity == "")
-            {
-                parity = defaultPortParity.ToString();
-            }
-
+            string parity = defaultPortParity.ToString();
             return (Parity)Enum.Parse(typeof(Parity), parity, true);
         }
         // Display DataBits values and prompt user to enter a value.
@@ -225,22 +216,7 @@ namespace ConsoleApplication1
         }
         public static Handshake SetPortHandshake(Handshake defaultPortHandshake)
         {
-            string handshake="";
-
-            /*Console.WriteLine("Available Handshake options:");
-            foreach (string s in Enum.GetNames(typeof(Handshake)))
-            {
-                Console.WriteLine("   {0}", s);
-            }
-
-            Console.Write("Enter Handshake value (Default: {0}):", defaultPortHandshake.ToString());
-            handshake = Console.ReadLine();
-            */
-            if (handshake == "")
-            {
-                handshake = defaultPortHandshake.ToString();
-            }
-
+                string handshake = defaultPortHandshake.ToString();
             return (Handshake)Enum.Parse(typeof(Handshake), handshake, true);
         }
     }
